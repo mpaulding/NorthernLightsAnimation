@@ -8,7 +8,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
+public class AnimationActivity extends AppCompatActivity {
 
     private AnimationDrawable frameAnim;
     private Animation rotateAnim;
@@ -18,11 +18,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_animation);
 
         lightsImageView = (ImageView) findViewById(R.id.lightsImageView);
-
-
     }
 
     public void toggleFrameAnim(View view)
