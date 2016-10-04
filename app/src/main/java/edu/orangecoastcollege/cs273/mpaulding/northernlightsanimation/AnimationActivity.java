@@ -13,6 +13,7 @@ public class AnimationActivity extends AppCompatActivity {
     private AnimationDrawable frameAnim;
     private Animation rotateAnim;
     private Animation shakeAnim;
+    private Animation flipAnim;
 
     private ImageView lightsImageView;
 
@@ -56,4 +57,12 @@ public class AnimationActivity extends AppCompatActivity {
         lightsImageView.startAnimation(shakeAnim);
 
     }
+
+    public void toggleFlipAnim(View view) {
+
+        flipAnim = AnimationUtils.loadAnimation(this, R.anim.flip_anim);
+        lightsImageView.startAnimation(flipAnim);
+
+    }
+
 }
