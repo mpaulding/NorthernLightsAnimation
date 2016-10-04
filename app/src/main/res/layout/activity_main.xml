@@ -18,20 +18,22 @@
         android:layout_height="wrap_content"
         android:id="@+id/lightsImageView"
         android:layout_weight="2"
-        android:adjustViewBounds="true" />
+        android:adjustViewBounds="true"
+        android:background="@drawable/lights1"/>
 
     <Button
         android:text="@string/frame_anim_button_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/frameAnimButton"
-        android:onClick="startFrameAnim" />
+        android:onClick="toggleFrameAnim" />
 
     <Button
         android:text="@string/rotate_anim_button_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rotateAnimButton" />
+        android:id="@+id/rotateAnimButton"
+        android:onClick="toggleRotateAnim"/>
 
     <Button
         android:text="@string/shake_anim_button_text"

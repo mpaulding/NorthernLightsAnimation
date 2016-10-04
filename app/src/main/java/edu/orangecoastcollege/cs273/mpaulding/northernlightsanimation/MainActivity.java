@@ -4,11 +4,14 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AnimationDrawable frameAnimation;
+    private AnimationDrawable frameAnim;
+    private Animation rotateAnim;
     private ImageView lightsImageView;
 
 
@@ -18,20 +21,37 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         lightsImageView = (ImageView) findViewById(R.id.lightsImageView);
-        lightsImageView.setBackgroundResource(R.drawable.frame_anim);
-        frameAnimation = (AnimationDrawable) lightsImageView.getBackground();
-
-
-
 
 
     }
 
-    public void startFrameAnim(View view)
+    public void toggleFrameAnim(View view)
     {
-        if (frameAnimation.isRunning())
-            frameAnimation.stop();
+        if (frameAnim == null)
+        {
+            lightsImageView.setBackgroundResource(R.drawable.frame_anim);
+            frameAnim = (AnimationDrawable) lightsImageView.getBackground();
+        }
+
+        if (frameAnim.isRunning())
+            frameAnim.stop();
         else
-            frameAnimation.start();
+            frameAnim.start();
+    }
+
+    public void toggleRotateAnim(View view)
+    {
+        if (frameAnim != null && frameAnim.isRunning())
+            frameAnim.stop();
+
+        if (rotateAnim != null && rotateAnim.hasStarted()) {
+            lightsImageView.clearAnimation();
+            rotateAnim = null;
+        }
+        else
+        {
+            rotateAnim = AnimationUtils.loadAnimation(this, R.anim.rotate_anim);
+            lightsImageView.startAnimation(rotateAnim);
+        }
     }
 }
