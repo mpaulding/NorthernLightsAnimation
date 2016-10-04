@@ -12,6 +12,8 @@ public class AnimationActivity extends AppCompatActivity {
 
     private AnimationDrawable frameAnim;
     private Animation rotateAnim;
+    private Animation shakeAnim;
+
     private ImageView lightsImageView;
 
 
@@ -23,10 +25,8 @@ public class AnimationActivity extends AppCompatActivity {
         lightsImageView = (ImageView) findViewById(R.id.lightsImageView);
     }
 
-    public void toggleFrameAnim(View view)
-    {
-        if (frameAnim == null)
-        {
+    public void toggleFrameAnim(View view) {
+        if (frameAnim == null) {
             lightsImageView.setBackgroundResource(R.drawable.frame_anim);
             frameAnim = (AnimationDrawable) lightsImageView.getBackground();
         }
@@ -37,19 +37,23 @@ public class AnimationActivity extends AppCompatActivity {
             frameAnim.start();
     }
 
-    public void toggleRotateAnim(View view)
-    {
+    public void toggleRotateAnim(View view) {
         if (frameAnim != null && frameAnim.isRunning())
             frameAnim.stop();
 
         if (rotateAnim != null && rotateAnim.hasStarted()) {
             lightsImageView.clearAnimation();
             rotateAnim = null;
-        }
-        else
-        {
+        } else {
             rotateAnim = AnimationUtils.loadAnimation(this, R.anim.rotate_anim);
             lightsImageView.startAnimation(rotateAnim);
         }
+    }
+
+    public void toggleShakeAnim(View view) {
+
+        shakeAnim = AnimationUtils.loadAnimation(this, R.anim.shake_anim);
+        lightsImageView.startAnimation(shakeAnim);
+
     }
 }

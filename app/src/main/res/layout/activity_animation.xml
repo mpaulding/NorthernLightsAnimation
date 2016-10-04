@@ -39,7 +39,8 @@
         android:text="@string/shake_anim_button_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/shakeAnimButton" />
+        android:id="@+id/shakeAnimButton"
+        android:onClick="toggleShakeAnim" />
 
     <Button
         android:text="@string/flip_anim_button_text"
