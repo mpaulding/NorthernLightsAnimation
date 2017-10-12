@@ -43,10 +43,10 @@
         android:text="@string/shake_anim_button_text"/>
 
     <Button
-        android:id="@+id/flipAnimButton"
+        android:id="@+id/customAnimButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="toggleFlipAnim"
-        android:text="@string/flip_anim_button_text"/>
+        android:text="@string/custom_anim_button_text"/>
 
 </LinearLayout>
